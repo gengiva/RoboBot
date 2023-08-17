@@ -34,7 +34,7 @@ let ID_GENERICO = ['', ''];
 
 let notizie = '';
 
-const delay = 500;
+const delay = () => Math.floor(Math.random()*1000) + 500;  // random tra mezzo secondo e un secondo
 
 let contatore = 0;
 
@@ -145,7 +145,7 @@ bot.on('message', (msg) => {
                     });
 
 
-        }, delay);
+        }, delay());
     });
 
 
@@ -175,7 +175,7 @@ bot.onText(/^ciao rob$/i, (msg, match) => {
 
 
 
-    }, delay);
+    }, delay());
 
 
 
@@ -192,7 +192,7 @@ bot.onText(/^!parla$/i, (msg, match) => {
 
 
 
-    }, delay);
+    }, delay());
 
 
 
@@ -221,7 +221,7 @@ bot.onText(/^!addquote$/i, (msg, match) => {
 
 
 
-        }, delay);
+        }, delay());
 
     }
 });
@@ -247,7 +247,7 @@ bot.onText(/^!quota$/i, (msg, match) => {
 
         });
 
-    }, delay);
+    }, delay());
 });
 //ISCRIZIONE: TODO: TRASFORMARLO IN COMANDO PER GENERARE SCHEDE NEMICI
 bot.onText(/^!iscrivi$/i, (msg, match) => {
@@ -307,7 +307,7 @@ bot.onText(/^!iscrivi$/i, (msg, match) => {
             });
 
         }
-    }, delay);
+    }, delay());
 });
 //!WIP! REGOLE DEL GIUOCO
 bot.onText(/^!regole$/i, (msg, match) => {
@@ -327,7 +327,7 @@ bot.onText(/^!regole$/i, (msg, match) => {
 
 
 
-    }, delay);
+    }, delay());
 
 });
 //COMANDO PER ATTACCARE NEL GIUOCO: TODO: TRASFORMARLO INSIEME AGLI ALTRI #RPG
@@ -380,7 +380,7 @@ bot.onText(/^!colpisci$/i, (msg, match) => {
             });
 
 
-        }, delay);
+        }, delay());
 
 
     }
@@ -495,7 +495,7 @@ bot.onText(/^!pg$/i, (msg, match) => {
         }
 
 
-    }, delay);
+    }, delay());
 });
 //LE PRIME 5 NOTIZIE NELLA SEZIONE ULTIMA ORA DELL'ANSA
 bot.onText(/^!news$/i, (msg, match) => {
@@ -552,7 +552,7 @@ bot.onText(/^!news$/i, (msg, match) => {
 
 
 
-    }, delay);
+    }, delay());
 
 
 });
@@ -581,7 +581,7 @@ bot.onText(/^!proverbio$/i, (msg, match) => {
         });
 
 
-    }, delay);
+    }, delay());
 
 
 });
@@ -607,7 +607,7 @@ bot.onText(/^!bot$/i, (msg, match) => {
 
 
 
-    }, delay);
+    }, delay());
 
 });
 //METEO PER CORAGGIOSI
@@ -633,7 +633,7 @@ bot.onText(/^!meteo$/i, (msg, match) => {
 
         });
 
-    }, delay);
+    }, delay());
 
 });
 //CERCA UNA FOTO SPECIFICA SUL WEB
@@ -806,7 +806,7 @@ async function InviaFotoDelay(id, file) {
     bot.sendChatAction(id, "upload_photo")
 
     //inizia ad aspettare
-    await sleep(delay);
+    await sleep(delay());
     //esegue da qui in giu
 
     bot.sendPhoto(id, TMP_IMG, { reply_to_message_id: ID_TMP_FOTO_QUOTA })
